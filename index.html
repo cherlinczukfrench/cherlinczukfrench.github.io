@@ -18,7 +18,7 @@ limitations under the License.
     <script type="text/javascript" src="../util/contentUtil.js"></script>
     <script type="text/javascript" src="../thirdPartyHelpers/google.js"></script>
     <script type="text/javascript">
-<script>
+    <script>
         "use strict";
 
 		va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
@@ -39,14 +39,22 @@ limitations under the License.
 			}
 		};
 		
+<<<<<<< HEAD
         google.charts.load('upcoming', {'packages':['sankey']});
+=======
+        google.charts.load('upcoming', {'packages':['corechart']});
+>>>>>>> parent of 2d4cc65... Update index.html
         google.charts.setOnLoadCallback(onChartLoad);
 		
 		va.contentUtil.setupResizeListener(drawChart);
 		
         function onChartLoad() 
 		{
+<<<<<<< HEAD
             _sankey = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+=======
+            _sankey = new google.visualization.sankeyChart(document.getElementById('chart_div'));
+>>>>>>> parent of 2d4cc65... Update index.html
 			google.visualization.events.addListener(_sankey, 'ready', readyHandler);
 			google.visualization.events.addListener(_sankey, 'select', selectHandler);
 			
@@ -64,6 +72,7 @@ limitations under the License.
             if (resultData) 
 			{
 				_resultName = resultData.resultName;
+                va.contentUtil.convertDateColumns(resultData);
                 _dataTable = va.googleHelper.createDataTable(resultData);
 				va.googleHelper.formatData(_dataTable, resultData);
 				va.googleHelper.formatAxis('hAxis', _options, resultData);

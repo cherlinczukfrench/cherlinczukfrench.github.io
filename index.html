@@ -29,10 +29,8 @@
 		var _dataTable = null;
 		var _selections = null;
 		var _sankey = null;
-		var options = {
-		  width: 1500,
-		  height: 500,
-		  sankey: {
+		var _options = {
+			sankey: {
 			  node: {
 				label: {
 				  fontName: 'Times-Roman',
@@ -43,7 +41,7 @@
 				},
 				interactivity: true, // Allows you to select nodes.
 				labelPadding: 2,			// Horizontal distance between the label and the node.
-				nodePadding: 50
+				nodePadding: 25
 			  }
 			}
 		};

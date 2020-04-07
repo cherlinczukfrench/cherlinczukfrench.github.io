@@ -79,10 +79,8 @@ limitations under the License.
             if (resultData) 
 			{
 				_resultName = resultData.resultName;
-                va.contentUtil.convertDateColumns(resultData);
                 _dataTable = va.googleHelper.createDataTable(resultData);
 				va.googleHelper.formatData(_dataTable, resultData);
-				va.googleHelper.formatAxis('hAxis', _options, resultData);
 				_selections = va.contentUtil.initializeSelections(resultData);
             }
 

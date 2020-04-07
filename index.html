@@ -39,6 +39,20 @@
 			legend: {
 				position: 'bottom'
 			}
+			sankey: {
+			  node: {
+				label: {
+				  fontName: 'Times-Roman',
+				  fontSize: 12,
+				  color: '#000',
+				  bold: true,
+				  italic: true
+				},
+				interactivity: true, // Allows you to select nodes.
+				labelPadding: 2,			// Horizontal distance between the label and the node.
+				nodePadding: 25
+			  }
+			}
 		};
 		
         google.charts.load('upcoming', {'packages':['sankey']});

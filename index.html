@@ -1,106 +1,81 @@
 <html>
   <head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="../util/messagingUtil.js"></script>
+    <script type="text/javascript" src="../util/contentUtil.js"></script>
+    <script type="text/javascript" src="../thirdPartyHelpers/google.js"></script>
     <script type="text/javascript">
-      google.charts.load('current', {'packages':['sankey']});
-      google.charts.setOnLoadCallback(drawChart);
+<script>
+        "use strict";
 
-      function drawChart() {
-        var data = new google.visualization.DataTable();
-        data.addColumn('string', 'From');
-        data.addColumn('string', 'To');
-        data.addColumn('number', 'Weight');
-        data.addRows([
-        ['ACCTBS_1','ACCTBS_2',32],
-		['ACCTBS_1','FINNBS_2',1],
-		['ACCTBS_1','KINSBS_2',1],
-		['ACCTBS_1','MGMTBS_2',1],
-		['ACCTBS_1','Drop Off_2',3],
-		['ACCTBS_2','ACCTBS_3',24],
-		['ACCTBS_2','FINNBS_3',1],
-		['ACCTBS_2','JOURBA_3',1],
-		['ACCTBS_2','Drop Off_3',6],
-		['ACCTBS_3','ACCTBS_4',18],
-		['ACCTBS_3','IDESBD_4',1],
-		['ACCTBS_3','MKTGBS_4',2],
-		['ACCTBS_3','UDUGAS_4',1],
-		['ACCTBS_3','Drop Off_4',2],
-		['ACCTBS_4','ACCTBS_5',16],
-		['ACCTBS_4','GRAD_5',1],
-		['ACCTBS_4','UDUGAS_5',1],
-		['ACCTBS_5','ACCTBS_6',13],
-		['ACCTBS_5','ERSCBS_6',1],
-		['ACCTBS_5','MGMTBS_6',1],
-		['ACCTBS_5','MKTGBS_6',1],
-		['ACCTBS_5','ISYSBS_6',1],
-		['ACCTBS_6','ACCTBS_7',12],
-		['ACCTBS_6','UDUGBA_7',1],
-		['ACCTBS_6','FINNBS_7',1],
-		['ACCTBS_7','ACCTBS_8',10],
-		['ACCTBS_7','MKTGBS_8',1],
-		['ACCTBS_7','Drop Off_8',1],
-		['ACCTBS_8','GRAD_9',4],
-		['ACCTBS_8','ACCTBS_9',1],
-		['ACCTBS_8','Drop Off_9',5],
-		['ACCTBS_9','ACCTBS_10',1],
-		['ARCHBA_5','BECOBS_6',1],
-		['BECOBS_6','BECOBS_7',1],
-		['BECOBS_7','BECOBS_8',2],
-		['BECOBS_8','BECOBS_9',1],
-		['BECOBS_8','GRAD_9',1],
-		['BECOBS_9','GRAD_10',1],
-		['CHLPBS_7','CHLPBS_8',1],
-		['CHLPBS_8','CHLPBS_9',1],
-		['CHLPBS_9','CHLPBS_10',1],
-		['FINNBS_2','FINNBS_3',1],
-		['FINNBS_3','FINNBS_4',2],
-		['FINNBS_4','FINNBS_5',1],
-		['FINNBS_4','MKTGBS_5',1],
-		['FINNBS_5','FINNBS_6',1],
-		['FINNBS_7','FINNBS_8',2],
-		['FINNBS_8','GRAD_9',3],
-		['GRAD_5','ACCTBS_6',1],
-		['GRAD_9','ISYSBS_10',1],
-		['GRAD_9','Drop Off_10',12],
-		['IDESBD_4','ACCTBS_5',1],
-		['ISYSBS_6','ISYSBS_7',1],
-		['ISYSBS_7','ISYSBS_8',1],
-		['ISYSBS_8','GRAD_9',1],
-		['JOURBA_3','JOURBA_4',1],
-		['JOURBA_4','JOURBA_5',1],
-		['JOURBA_5','JOURBA_6',1],
-		['JOURBA_6','JOURBA_7',1],
-		['JOURBA_7','JOURBA_8',1],
-		['JOURBA_8','JOURBA_9',1],
-		['KINSBS_2','UDUGBA_3',1],
-		['MGMTBS_2','MGMTBS_3',1],
-		['MGMTBS_3','MGMTBS_4',1],
-		['MGMTBS_4','MGMTBS_5',1],
-		['MGMTBS_5','MGMTBS_6',1],
-		['MGMTBS_6','MGMTBS_7',2],
-		['MGMTBS_7','MGMTBS_8',2],
-		['MGMTBS_8','GRAD_9',2],
-		['MKTGBS_4','ARCHBA_5',1],
-		['MKTGBS_4','MKTGBS_5',1],
-		['MKTGBS_5','MKTGBS_6',2],
-		['MKTGBS_6','BECOBS_7',1],
-		['MKTGBS_6','MKTGBS_7',1],
-		['MKTGBS_6','FINNBS_7',1],
-		['MKTGBS_7','MKTGBS_8',1],
-		['MKTGBS_8','GRAD_9',2],
-		['PHYSBS_5','PHYSBS_6',1],
-		['PHYSBS_6','PHYSBS_7',1],
-		['PHYSBS_7','PHYSBS_8',1],
-		['UDUGAS_4','PHYSBS_5',1],
-		['UDUGAS_5','UDUGAS_6',1],
-		['UDUGAS_6','CHLPBS_7',1],
-		['UDUGBA_3','UDUGBA_4',1],
-		['UDUGBA_4','UDUGBA_5',1],
-		['UDUGBA_5','UDUGBA_6',1],
-		['UDUGBA_6','UDUGBA_7',1],
-		['UDUGBA_7','FINNBS_8',1],
-		['UDUGBA_7','Drop Off_8',1]
-        ]);
+		va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+
+		var _resultName = null;
+		var _dataTable = null;
+		var _selections = null;
+		var _sankey = null;
+		var _options = {
+			chartArea: {
+				left: 80,
+				bottom: 40,  
+				width: '100%',
+				height: '100%'  
+			},
+			legend: {
+				position: 'bottom'
+			}
+		};
+		
+        google.charts.load('current', {'packages':['sankey']});
+		google.charts.setOnLoadCallback(drawChart);
+		
+		va.contentUtil.setupResizeListener(drawChart);
+		
+        function onChartLoad() 
+		{
+            _sankey = new google.visualization.DataTable(document.getElementById('chart_div'));
+			google.visualization.events.addListener(_sankey, 'ready', readyHandler);
+			google.visualization.events.addListener(_sankey, 'select', selectHandler);
+			
+			drawChart();
+        };
+		
+		function drawChart()
+		{
+			if (_sankey)
+				_sankey.draw(_dataTable, _options);
+		}
+
+        function onDataReceived(resultData)
+        {
+            if (resultData) 
+			{
+				_resultName = resultData.resultName;
+                va.contentUtil.convertDateColumns(resultData);
+                _dataTable = va.googleHelper.createDataTable(resultData);
+				va.googleHelper.formatData(_dataTable, resultData);
+				va.googleHelper.formatAxis('hAxis', _options, resultData);
+				_selections = va.contentUtil.initializeSelections(resultData);
+            }
+
+			drawChart();
+        }
+
+		function readyHandler(e) 
+		{
+			if (_selections && _selections.length > 0)
+			{
+				_sankey.setSelection(_selections);
+			}
+		}
+
+		function selectHandler(e) 
+		{
+			var selection = _sankey.getSelection();
+			va.messagingUtil.postSelectionMessage(_resultName, selection);
+		}
+
+    </script>
 
         // Sets chart options.
         var options = {

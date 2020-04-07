@@ -5,7 +5,7 @@
     <script type="text/javascript" src="../util/contentUtil.js"></script>
     <script type="text/javascript" src="../thirdPartyHelpers/google.js"></script>
     <script type="text/javascript">
-    <script>
+<script>
         "use strict";
 
 		va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
@@ -26,14 +26,14 @@
 			}
 		};
 		
-        google.charts.load('upcoming', {'packages':['corechart']});
-        google.charts.setOnLoadCallback(onChartLoad);
+        google.charts.load('current', {'packages':['sankey']});
+		google.charts.setOnLoadCallback(drawChart);
 		
 		va.contentUtil.setupResizeListener(drawChart);
 		
         function onChartLoad() 
 		{
-            _sankey = new google.visualization.sankeyChart(document.getElementById('chart_div'));
+            _sankey = new google.visualization.DataTable(document.getElementById('chart_div'));
 			google.visualization.events.addListener(_sankey, 'ready', readyHandler);
 			google.visualization.events.addListener(_sankey, 'select', selectHandler);
 			
@@ -42,8 +42,7 @@
 		
 		function drawChart()
 		{
-			if (_sankey)
-				_sankey.draw(_dataTable, _options);
+			var data = new google.visualization.DataTable();
 		}
 
         function onDataReceived(resultData)
@@ -51,10 +50,8 @@
             if (resultData) 
 			{
 				_resultName = resultData.resultName;
-                va.contentUtil.convertDateColumns(resultData);
                 _dataTable = va.googleHelper.createDataTable(resultData);
 				va.googleHelper.formatData(_dataTable, resultData);
-				va.googleHelper.formatAxis('hAxis', _options, resultData);
 				_selections = va.contentUtil.initializeSelections(resultData);
             }
 

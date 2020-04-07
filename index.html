@@ -26,14 +26,14 @@
 			}
 		};
 		
-        google.charts.load('current', {'packages':['sankey']});
-		google.charts.setOnLoadCallback(drawChart);
+        google.charts.load('upcoming', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(onChartLoad);
 		
 		va.contentUtil.setupResizeListener(drawChart);
 		
         function onChartLoad() 
 		{
-            _sankey = new google.visualization.DataTable(document.getElementById('sankey_basic'));
+            _sankey = new google.visualization.Sankey(document.getElementById('sankey_basic'));
 			google.visualization.events.addListener(_sankey, 'ready', readyHandler);
 			google.visualization.events.addListener(_sankey, 'select', selectHandler);
 			
@@ -73,32 +73,6 @@
 			va.messagingUtil.postSelectionMessage(_resultName, selection);
 		}
 
-    </script>
-
-        // Sets chart options.
-        var options = {
-      width: 1500,
-	  height: 500,
-      sankey: {
-		  node: {
-			label: {
-			  fontName: 'Times-Roman',
-			  fontSize: 12,
-			  color: '#000',
-			  bold: true,
-			  italic: true
-			},
-			interactivity: true, // Allows you to select nodes.
-			labelPadding: 2,			// Horizontal distance between the label and the node.
-			nodePadding: 25
-		  }
-		}
-	};
-
-        // Instantiates and draws our chart, passing in some options.
-        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
-        chart.draw(_sankey, options);
-      }
     </script>
   </head>
   <body>

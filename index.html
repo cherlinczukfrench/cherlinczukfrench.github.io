@@ -71,8 +71,7 @@ limitations under the License.
 		
 		function drawChart()
 		{
-			if (_sankey)
-				_sankey.draw(_dataTable, _options);
+			var data = new google.visualization.DataTable();
 		}
 
         function onDataReceived(resultData)
@@ -105,6 +104,35 @@ limitations under the License.
 		}
 
     </script>
+<<<<<<< HEAD
+=======
+
+        // Sets chart options.
+        var options = {
+      width: 1500,
+	  height: 500,
+      sankey: {
+		  node: {
+			label: {
+			  fontName: 'Times-Roman',
+			  fontSize: 12,
+			  color: '#000',
+			  bold: true,
+			  italic: true
+			},
+			interactivity: true, // Allows you to select nodes.
+			labelPadding: 2,			// Horizontal distance between the label and the node.
+			nodePadding: 25
+		  }
+		}
+	};
+
+        // Instantiates and draws our chart, passing in some options.
+        var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
+        chart.draw(data, options);
+      }
+    </script>
+>>>>>>> parent of 2c5bd30... Update index.html
   </head>
   <body>
     <div id="sankey_basic" style="width: 900px; height: 300px;"></div>

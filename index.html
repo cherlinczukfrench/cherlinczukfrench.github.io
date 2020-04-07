@@ -42,7 +42,8 @@
 		
 		function drawChart()
 		{
-			var data = new google.visualization.DataTable();
+			if (_sankey)
+				_sankey.draw(_dataTable, _options);
 		}
 
         function onDataReceived(resultData)
@@ -96,7 +97,7 @@
 
         // Instantiates and draws our chart, passing in some options.
         var chart = new google.visualization.Sankey(document.getElementById('sankey_basic'));
-        chart.draw(data, options);
+        chart.draw(_sankey, options);
       }
     </script>
   </head>

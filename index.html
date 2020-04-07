@@ -5,7 +5,7 @@
     <script type="text/javascript" src="../util/contentUtil.js"></script>
     <script type="text/javascript" src="../thirdPartyHelpers/google.js"></script>
     <script type="text/javascript">
-<script>
+    <script>
         "use strict";
 
 		va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
@@ -26,14 +26,14 @@
 			}
 		};
 		
-        google.charts.load('current', {'packages':['sankey']});
-		google.charts.setOnLoadCallback(drawChart);
+        google.charts.load('upcoming', {'packages':['corechart']});
+        google.charts.setOnLoadCallback(onChartLoad);
 		
 		va.contentUtil.setupResizeListener(drawChart);
 		
         function onChartLoad() 
 		{
-            _sankey = new google.visualization.DataTable(document.getElementById('chart_div'));
+            _sankey = new google.visualization.sankeyChart(document.getElementById('chart_div'));
 			google.visualization.events.addListener(_sankey, 'ready', readyHandler);
 			google.visualization.events.addListener(_sankey, 'select', selectHandler);
 			

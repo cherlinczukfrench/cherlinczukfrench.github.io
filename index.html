@@ -61,7 +61,7 @@ limitations under the License.
 		
         function onChartLoad() 
 		{
-            _sankey = new google.visualization.sankeyChart(document.getElementById('chart_div'));
+            _sankey = new google.visualization.Sankey(document.getElementById('chart_div'));
 			google.visualization.events.addListener(_sankey, 'ready', readyHandler);
 			google.visualization.events.addListener(_sankey, 'select', selectHandler);
 			

@@ -1,0 +1,90 @@
+﻿source,target,value
+"(ACCTBS, 1)","(ACCTBS, 2)",32
+"(ACCTBS, 2)","(ACCTBS, 3)",24
+"(ACCTBS, 3)","(ACCTBS, 4)",18
+"(ACCTBS, 4)","(ACCTBS, 5)",16
+"(ACCTBS, 5)","(ACCTBS, 6)",13
+"(ACCTBS, 6)","(ACCTBS, 7)",12
+"(ACCTBS, 7)","(ACCTBS, 8)",10
+"(ACCTBS, 8)","(GRAD, 9)",4
+"(ACCTBS, 4)","(GRAD, 5)",1
+"(GRAD, 5)","(ACCTBS, 6)",1
+"(ACCTBS, 6)","(UDUGBA, 7)",1
+"(ACCTBS, 8)","(ACCTBS, 9)",1
+"(ACCTBS, 9)","(ACCTBS, 10)",1
+"(ACCTBS, 7)","(MKTGBS, 8)",1
+"(MKTGBS, 8)","(GRAD, 9)",2
+"(ACCTBS, 6)","(FINNBS, 7)",1
+"(FINNBS, 7)","(FINNBS, 8)",2
+"(FINNBS, 8)","(GRAD, 9)",3
+"(ACCTBS, 5)","(ERSCBS, 6)",1
+"(ACCTBS, 5)","(MGMTBS, 6)",1
+"(MGMTBS, 6)","(MGMTBS, 7)",2
+"(MGMTBS, 7)","(MGMTBS, 8)",2
+"(MGMTBS, 8)","(GRAD, 9)",2
+"(ACCTBS, 5)","(MKTGBS, 6)",1
+"(MKTGBS, 6)","(BECOBS, 7)",1
+"(BECOBS, 7)","(BECOBS, 8)",2
+"(BECOBS, 8)","(BECOBS, 9)",1
+"(BECOBS, 9)","(GRAD, 10)",1
+"(ACCTBS, 4)","(UDUGAS, 5)",1
+"(UDUGAS, 5)","(UDUGAS, 6)",1
+"(UDUGAS, 6)","(CHLPBS, 7)",1
+"(CHLPBS, 7)","(CHLPBS, 8)",1
+"(CHLPBS, 8)","(CHLPBS, 9)",1
+"(CHLPBS, 9)","(CHLPBS, 10)",1
+"(ACCTBS, 3)","(IDESBD, 4)",1
+"(IDESBD, 4)","(ACCTBS, 5)",1
+"(ACCTBS, 5)","(ISYSBS, 6)",1
+"(ISYSBS, 6)","(ISYSBS, 7)",1
+"(ISYSBS, 7)","(ISYSBS, 8)",1
+"(ISYSBS, 8)","(GRAD, 9)",1
+"(GRAD, 9)","(ISYSBS, 10)",1
+"(ACCTBS, 3)","(MKTGBS, 4)",2
+"(MKTGBS, 4)","(ARCHBA, 5)",1
+"(ARCHBA, 5)","(BECOBS, 6)",1
+"(BECOBS, 6)","(BECOBS, 7)",1
+"(BECOBS, 8)","(GRAD, 9)",1
+"(MKTGBS, 4)","(MKTGBS, 5)",1
+"(MKTGBS, 5)","(MKTGBS, 6)",2
+"(MKTGBS, 6)","(MKTGBS, 7)",1
+"(MKTGBS, 7)","(MKTGBS, 8)",1
+"(ACCTBS, 3)","(UDUGAS, 4)",1
+"(UDUGAS, 4)","(PHYSBS, 5)",1
+"(PHYSBS, 5)","(PHYSBS, 6)",1
+"(PHYSBS, 6)","(PHYSBS, 7)",1
+"(PHYSBS, 7)","(PHYSBS, 8)",1
+"(ACCTBS, 2)","(FINNBS, 3)",1
+"(FINNBS, 3)","(FINNBS, 4)",2
+"(FINNBS, 4)","(FINNBS, 5)",1
+"(FINNBS, 5)","(FINNBS, 6)",1
+"(ACCTBS, 2)","(JOURBA, 3)",1
+"(JOURBA, 3)","(JOURBA, 4)",1
+"(JOURBA, 4)","(JOURBA, 5)",1
+"(JOURBA, 5)","(JOURBA, 6)",1
+"(JOURBA, 6)","(JOURBA, 7)",1
+"(JOURBA, 7)","(JOURBA, 8)",1
+"(JOURBA, 8)","(JOURBA, 9)",1
+"(ACCTBS, 1)","(FINNBS, 2)",1
+"(FINNBS, 2)","(FINNBS, 3)",1
+"(FINNBS, 4)","(MKTGBS, 5)",1
+"(MKTGBS, 6)","(FINNBS, 7)",1
+"(ACCTBS, 1)","(KINSBS, 2)",1
+"(KINSBS, 2)","(UDUGBA, 3)",1
+"(UDUGBA, 3)","(UDUGBA, 4)",1
+"(UDUGBA, 4)","(UDUGBA, 5)",1
+"(UDUGBA, 5)","(UDUGBA, 6)",1
+"(UDUGBA, 6)","(UDUGBA, 7)",1
+"(UDUGBA, 7)","(FINNBS, 8)",1
+"(ACCTBS, 1)","(MGMTBS, 2)",1
+"(MGMTBS, 2)","(MGMTBS, 3)",1
+"(MGMTBS, 3)","(MGMTBS, 4)",1
+"(MGMTBS, 4)","(MGMTBS, 5)",1
+"(MGMTBS, 5)","(MGMTBS, 6)",1
+"(ACCTBS, 2)","(Drop Off, 3)",6
+"(ACCTBS, 8)","(Drop Off, 9)",5
+"(GRAD, 9)","(Drop Off, 10)",12
+"(ACCTBS, 1)","(Drop Off, 2)",3
+"(ACCTBS, 3)","(Drop Off, 4)",2
+"(UDUGBA, 7)","(Drop Off, 8)",1
+"(ACCTBS, 7)","(Drop Off, 8)",1

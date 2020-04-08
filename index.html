@@ -27,6 +27,7 @@ limitations under the License.
 		}
 		
 		html, body, #chart, svg {
+			margin: 0px auto;
 			padding: 0px;
 			height: 100%;
 			width: 100%;
@@ -128,7 +129,7 @@ var g_dataTable	; 	// this will hold the data as an array of ordered objects
 var g_selections = [];		// this will contain the linked selections (brush) coming from VA
 var g_selectedId = -1;
 var g_selectedCircle = null;
-var margin = {top: 10, right: 10, bottom: 10, left: 400};
+var margin = {top: 10, right: 10, bottom: 10, left: 600};
 
 // If not being rendered in iFrame (outside VA), render with sample data
 if (!inIframe()) {
@@ -186,7 +187,7 @@ function updateChart() {
 
 function draw(data, width, height) {
     var svg = d3.select("svg");
-	var format = d3.format("$,.0f");
+	var format = d3.format(".0f");
 	var color = d3.scaleSequential(d3.interpolateMagma)
 		.domain([-4, 4]);
 

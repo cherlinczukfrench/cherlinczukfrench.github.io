@@ -27,7 +27,7 @@ limitations under the License.
 		}
 		
 		html, body, #chart, svg {
-			margin: 0px auto;
+			margin: 0px;
 			padding: 0px;
 			height: 100%;
 			width: 100%;
@@ -124,32 +124,12 @@ var g_sampleData = [
 	  {id:"US.Southwest.New Mexico", value:400}
 ];
 
-/*var g_sampleData = [];
-g_sampleData.push({id:"US", value:""});
-g_sampleData.push({id:"US.Northeast", value:""});
-g_sampleData.push({id:"US.Northeast.New York", value:1800});
-g_sampleData.push({id:"US.Northeast", ""],
-g_sampleData.push({id:"US.Northeast.New York", 1800],
-g_sampleData.push({id:"US.Northeast.Massachusetts", 500],
-g_sampleData.push({id:"US.Northeast.Connecticut", 500],
-g_sampleData.push({id:"US.Northeast.New Jersey", 600],
-g_sampleData.push({id:"US.Southeast", ""],
-g_sampleData.push({id:"US.Southeast.North Carolina", 1700],
-g_sampleData.push({id:"US.Southeast.Virginia", 900],
-g_sampleData.push({id:"US.Southeast.Florida", 1500],
-g_sampleData.push({id:"US.Southwest", ""],
-g_sampleData.push({id:"US.Southwest.Arizona", 600],
-	  ["US.Southwest.New Mexico", 400]
-];
-*/
-
-
 var g_VAMessage = null; 	// this will become a pointer to event.data coming from VA
 var g_dataTable	; 	// this will hold the data as an array of ordered objects 
 var g_selections = [];		// this will contain the linked selections (brush) coming from VA
 var g_selectedId = -1;
 var g_selectedCircle = null;
-var margin = {top: 10, right: 10, bottom: 10, left: 10};
+var margin = {top: 10, right: 10, bottom: 10, left: 500};
 
 // If not being rendered in iFrame (outside VA), render with sample data
 if (!inIframe()) {

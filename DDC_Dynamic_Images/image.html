@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <script type="text/javascript" src="jquery-1.4.3.min.js"></script>
+
+    <style>
+        text {
+            font: 11pt AvenirNext;
+        }
+
+        svg {
+            display: block;
+        }
+
+        html, body, #chart_div, svg {
+            margin: 0px;
+            padding: 0px;
+            height: 100%;
+            width: 100%;
+        }
+
+        img {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+<div id="logoContainer" style="height:100%;width:100%; text-align:center">
+</div>
+<script>
+ 
+    function onMessage(evt) {
+        if (evt && evt.data) {
+			$("#logoContainer").empty();
+			var data = evt.data,
+                columns = data.columns,
+                campusColumnIdx = 0, // TODO: probably better to search in columns
+                rows = data.data;
+
+            if (rows && rows.length > 0) {
+                var campus = rows[0][campusColumnIdx];
+                var div = $("<img src=\"images/" + campus + ".png\" class=\"pic\" alt='\"" + campus + "\"'></img>");
+                $("#logoContainer").append(div);
+            }else{
+                $("#logoContainer").empty();
+            }
+        }
+    }
+
+    if (window.addEventListener) {
+        window.addEventListener("message", onMessage, false);
+    } else {
+        window.attachEvent("onmessage", onMessage);
+    }
+</script>
+
+</body>
+</html>

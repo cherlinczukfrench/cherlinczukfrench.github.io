@@ -37,7 +37,8 @@
  
     function onMessage(evt) {
         if (evt && evt.data) {
-            var data = evt.data,
+			$("#logoContainer").empty();
+			var data = evt.data,
                 columns = data.columns,
                 campusColumnIdx = 0, // TODO: probably better to search in columns
                 rows = data.data;

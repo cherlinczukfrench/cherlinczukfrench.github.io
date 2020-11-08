@@ -1,11 +1,24 @@
+<!DOCTYPE html>
+<!--
+Copyright 2018 SAS Institute Inc.
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+    https://www.apache.org/licenses/LICENSE-2.0
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
 <html>
-  <head>
+<head>
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
-	<script type="text/javascript" src="../util/messagingUtil.js"></script>
-	<script type="text/javascript" src="../util/contentUtil.js"></script>
-	<script type="text/javascript" src="../thirdPartyHelpers/google.js"></script>
+    <script type="text/javascript" src="../util/messagingUtil.js"></script>
+    <script type="text/javascript" src="../util/contentUtil.js"></script>
+    <script type="text/javascript" src="../thirdPartyHelpers/google.js"></script>
 
-	<style>
+    <style>
 		html {
 			overflow: hidden;
 		}
@@ -38,10 +51,11 @@
 			},
 			legend: {
 				position: 'bottom'
-			}
+			},
+			{'allowHtml':true}
 		};
 		
-        google.charts.load('current', {packages:["orgchart"]});;
+        google.charts.load('current', {'packages':['orgchart']});
         google.charts.setOnLoadCallback(onChartLoad);
 		
 		va.contentUtil.setupResizeListener(drawChart);
@@ -60,12 +74,6 @@
 			if (_org)
 				_org.draw(_dataTable, _options);
 		}
-
-        // Create the chart.
-        var chart = new google.visualization.OrgChart(document.getElementById('chart_div'));
-        // Draw the chart, setting the allowHtml option to true for the tooltips.
-        chart.draw(_dataTable, {'allowHtml':true});
-      }
 
         function onDataReceived(resultData)
         {
@@ -95,8 +103,10 @@
 			var selection = _org.getSelection();
 			va.messagingUtil.postSelectionMessage(_resultName, selection);
 		}
-    </head>
-  <body>
-    <div id="chart_div"></div>
-  </body>
+
+    </script>
+</head>
+<body>
+    <div id="chart_div"/>
+</body>
 </html>

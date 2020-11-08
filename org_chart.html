@@ -1,0 +1,75 @@
+<html>
+  <head>
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	<script type="text/javascript" src="../util/messagingUtil.js"></script>
+	<script type="text/javascript" src="../util/contentUtil.js"></script>
+	<script type="text/javascript" src="../thirdPartyHelpers/google.js"></script>
+
+	<script type="text/javascript">
+	
+	
+		va.messagingUtil.setOnDataReceivedCallback(onDataReceived);
+
+		var _resultName = null;
+		var _dataTable = null;
+		var _selections = null;
+		var _org = null;
+		var _options = {
+			{'allowHtml':true}
+		};
+
+		
+		google.charts.load('current', {packages:["orgchart"]});
+        google.charts.setOnLoadCallback(onChartLoad);
+		
+		va.contentUtil.setupResizeListener(drawChart);
+		
+		function onChartLoad() 
+		{
+            _org = new google.visualization.OrgChart(document.getElementById('chart_div'));
+	        chart.draw(data, );
+			google.visualization.events.addListener(_bar, 'ready', readyHandler);
+			google.visualization.events.addListener(_bar, 'select', selectHandler);
+			
+			drawChart();
+        };
+		
+		function drawChart()
+		{
+			if (_org)
+				_org.draw(_dataTable, _options);
+		}
+		
+		function onDataReceived(resultData)
+        {
+            if (resultData) 
+			{
+				_resultName = resultData.resultName;
+                va.contentUtil.convertDateColumns(resultData);
+                _dataTable = va.googleHelper.createDataTable(resultData);
+				va.googleHelper.formatData(_dataTable, resultData);
+				_selections = va.contentUtil.initializeSelections(resultData);
+            }
+			drawChart();
+        }
+		
+		function readyHandler(e) 
+		{
+			if (_selections && _selections.length > 0)
+			{
+				_bar.setSelection(_selections);
+			}
+		}
+		
+		function selectHandler(e) 
+		{
+			var selection = _bar.getSelection();
+			va.messagingUtil.postSelectionMessage(_resultName, selection);
+		}
+      }
+   </script>
+    </head>
+  <body>
+    <div id="chart_div"></div>
+  </body>
+</html>
